@@ -6,8 +6,16 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
-all: $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+TEST = $(wildcard test/*.c)
+TEST_OUT = $(TEST:.c=.test)
+
+all: $(NAME)
+
+test: $(NAME)
+	$(CC) $(CFLAGS) $(TEST) -L. -lft -o $(TEST_OUT)
+
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -20,5 +28,8 @@ fclean: clean
 
 re: fclean all
 
-ar: $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+testclean:
+	rm -f $(TEST_OUT)
+
+testre:
+	testclean test
