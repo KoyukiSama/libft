@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_str.c                                           :+:    :+:            */
+/*   ft_str1.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 22:05:44 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 22:25:09 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *) us);
 	return ((char *) last_ptr);
 }
-
-// strncmp
-
-// strnstr
