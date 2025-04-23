@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 23:09:41 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 23:17:57 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 int	toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c + 'A' - 'a');
+	unsigned char uc;
+
+	uc = (unsigned char) c;
+	if (uc >= 'a' && uc <= 'z')
+		return (uc + 'A' - 'a');
 	return (c);
 }
 
 int	tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 'a' - 'A');
+	unsigned char uc;
+
+	uc = (unsigned char) c;
+	if (uc >= 'A' && uc <= 'Z')
+		return (uc + 'a' - 'A');
 	return (c);
 }
