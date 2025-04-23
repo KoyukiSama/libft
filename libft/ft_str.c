@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 17:31:37 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 18:33:35 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,45 @@ size_t	ft_strlen(const char *s)
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	src_len;
-	size_t	i;
 
-	src_len = ft_strlen(src);	
-	i = 0;
+	src_len = ft_strlen(src);
 	if (size == 0)
 		return (src_len);
-	while (i < (size - 1) && src[i])
+	while (size-- > 1 && *src)
 	{
-		dst[i] = src[i];
-		i++;
+		*dst++ = *src++;
 	}
-	dst[i] = '\0';
+	*dst = '\0';
 	return (src_len);
 }
 
-// size_t strlcat(char *dst, const char *src, size_t size)
-// {
-	
-// }
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	src_len;
+	size_t	dst_len;
+	size_t	rem;
+
+	dst_len = 0;
+	while (dst_len < size && dst[dst_len])
+	{
+		dst_len++;
+	}
+	src_len = 0;
+	while (src[src_len])
+	{
+		src_len++;
+	}
+	if (dst_len == size)
+		return (src_len + size);
+	dst += dst_len;
+	rem = size - dst_len - 1;
+	while (rem-- > 0 && *src)
+	{
+		*dst++ = *src++;
+	}
+	*dst = '\0';
+	return (dst_len + src_len);
+}
 
 // strchr
 
