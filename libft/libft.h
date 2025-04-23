@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 00:15:52 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/24 00:53:12 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <stdint.h>
 
 // (ft_ctype1.c)
 int		ft_isalpha(int c);
@@ -25,15 +26,19 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 
 // (ft_ctype2.c)
-int		toupper(int c);
-int		tolower(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
 
-// (ft_mem.c)
+// (ft_mem1.c)
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
+// (ft_mem2.c)
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t n, size_t size);
 
 // (ft_str1.c)
 size_t	ft_strlen(const char *s);

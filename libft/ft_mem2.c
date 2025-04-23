@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_ctype2.c                                        :+:    :+:            */
+/*   ft_mem2.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 00:31:36 by kclaes        ########   odam.nl         */
+/*   Created: 2025/04/23 23:02:25 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/04/24 00:52:30 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char) c;
-	if (uc >= 'a' && uc <= 'z')
-		return (uc + 'A' - 'a');
-	return (c);
+	ft_memset(s, '\0', n);
 }
 
-int	ft_tolower(int c)
+void	*ft_calloc(size_t n, size_t size)
 {
-	unsigned char	uc;
+	size_t	bytes;
+	void	*s;
 
-	uc = (unsigned char) c;
-	if (uc >= 'A' && uc <= 'Z')
-		return (uc + 'a' - 'A');
-	return (c);
+	if (n > SIZE_MAX / size)
+		return (NULL);
+	bytes = n * size;
+	if (bytes == 0)
+	{
+		bytes = 1;
+		s = malloc(bytes);
+		if (!s)
+			return (NULL);
+	}
+	else
+	{
+		s = malloc(bytes);
+		if (!s)
+			return (NULL);
+	}
+	return (ft_memset(s, 0, bytes));
 }
