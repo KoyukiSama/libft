@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 22:58:53 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 22:59:49 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 char	*strnstr(const char *big, const char *little, size_t len)
 {
 	size_t		i;
-	
+
 	if (*little == '\0')
-		return((char *) big);
+		return ((char *) big);
 	while (*big && len > 0)
 	{
 		i = 0;
@@ -55,7 +55,7 @@ char	*strnstr(const char *big, const char *little, size_t len)
 			i++;
 		}
 		if (little[i] == '\0')
-			return((char *) big);
+			return ((char *) big);
 		big++;
 		len--;
 	}
