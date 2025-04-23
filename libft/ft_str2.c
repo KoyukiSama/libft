@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 23:25:20 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/24 01:02:50 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,21 @@ char	*strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-// strdup
+char	*strdup(const char *s)
+{
+	size_t	size;
+	size_t	i;
+	char	*s_new;
+
+	size = ft_strlen(s) + 1;
+	s_new = malloc(size);
+	if (!s_new)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		s_new[i] = s[i];
+		i++;
+	}
+	return (s_new);
+}
