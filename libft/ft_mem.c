@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 23:02:25 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 00:03:55 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/24 00:19:23 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,42 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-// memchr
+//	The  memchr()  and  memrchr()
+//	functions return a pointer to
+//	the matching byte or NULL  if
+//	the  character does not occur
+//	in the given memory area.	 (from man page memchr)
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	const unsigned char	*us;
+	unsigned char		uc;
 
-// memcmp
+	us = (const unsigned char *) s;
+	uc = (unsigned char) c;
+	while (n--)
+	{
+		if (*us == uc)
+			return ((void *) us);
+		us++;
+	}
+	return (NULL);
+}
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	const unsigned char	*us1;
+	const unsigned char	*us2;
+
+	us1 = (const unsigned char *) s1;
+	us2 = (const unsigned char *) s2;
+	while (n--)
+	{
+		if (*us1 != *us2)
+			return ((int)(*us1 - *us2));
+		us1++;
+		us2++;
+	}
+	return (0);
+}
 
 // calloc
