@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 22:30:24 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 23:09:26 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 # include <stddef.h>
 # include <stdlib.h>
 
-// (ft_ctype.c)
+// (ft_ctype1.c)
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+
+// (ft_ctype2.c)
+int		toupper(int c);
+int		tolower(int c);
 
 // (ft_str1.c)
 size_t	ft_strlen(const char *s);
