@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 21:05:40 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 21:45:04 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strchr(const char *s, int c);
+char	*strrchr(const char *s, int c);
 
 #endif

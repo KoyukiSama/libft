@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 21:42:44 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 21:45:38 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ char	*ft_strchr(const char *s, int c)
 
 	uc = (unsigned char) c;
 	us = (const unsigned char *) s;
-
 	while (*us)
 	{
 		if (*us == uc)
@@ -97,7 +96,10 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-// strrchr
+char *strrchr(const char *s, int c)
+{
+	
+}
 
 // strncmp
 
