@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 22:57:24 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 22:58:53 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return ((int)((unsigned char) *s1 - (unsigned char) *s2));
 }
 
+//    If little is an empty string,
+//    big is  returned;  if  little
+//    occurs  nowhere  in big, NULL
+//    is  returned;   otherwise   a
+//    pointer  to the first charac‐
+//    ter of the  first  occurrence
+//    of little is returned.		(from man page strnstr)
 char	*strnstr(const char *big, const char *little, size_t len)
 {
 	size_t		i;
