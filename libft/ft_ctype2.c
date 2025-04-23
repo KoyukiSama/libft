@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 23:25:12 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 23:54:21 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	toupper(int c)
 {
-	unsigned char uc;
+	unsigned char	uc;
 
 	uc = (unsigned char) c;
 	if (uc >= 'a' && uc <= 'z')
@@ -24,7 +24,7 @@ int	toupper(int c)
 
 int	tolower(int c)
 {
-	unsigned char uc;
+	unsigned char	uc;
 
 	uc = (unsigned char) c;
 	if (uc >= 'A' && uc <= 'Z')

@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 23:19:03 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 23:53:53 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalpha(int c)
 {
-	unsigned char uc;
+	unsigned char	uc;
 
 	uc = (unsigned char) c;
 	if ((uc >= 'a' && uc <= 'z')
@@ -25,7 +25,7 @@ int	ft_isalpha(int c)
 
 int	ft_isdigit(int c)
 {
-	unsigned char uc;
+	unsigned char	uc;
 
 	uc = (unsigned char) c;
 	if (uc >= '0' && uc <= '9')
@@ -40,7 +40,7 @@ int	ft_isalnum(int c)
 
 int	ft_isascii(int c)
 {
-	unsigned char uc;
+	unsigned char	uc;
 
 	uc = (unsigned char) c;
 	if (uc >= 0 && uc <= 127)
@@ -50,7 +50,7 @@ int	ft_isascii(int c)
 
 int	ft_isprint(int c)
 {
-	unsigned char uc;
+	unsigned char	uc;
 
 	uc = (unsigned char) c;
 	if (uc >= 32 && uc <= 126)
