@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 15:19:47 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 15:25:08 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	i = 0;
 	while (i < (size - 1) && src[i])
 	{
-		dst[i] = src[i++];
+		dst[i] = src[i];
+		i++;
 	}
 	if (i < size && !src[i])
 		dst[i++] = '\0';

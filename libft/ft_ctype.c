@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 14:29:28 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 15:23:59 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 // EOF or unsigned char
 int	ft_isalpha(int c)
 {
-	if (c >= 'a' && c <= 'z'
-		|| c >= 'A' && c <= 'Z')
+	if ((c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
 }
