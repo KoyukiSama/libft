@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 18:36:19 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 21:42:44 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,24 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (dst_len + src_len);
 }
 
-// strchr
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned char		uc;
+	const unsigned char	*us;
+
+	uc = (unsigned char) c;
+	us = (const unsigned char *) s;
+
+	while (*us)
+	{
+		if (*us == uc)
+			return ((char *) us);
+		us++;
+	}
+	if (uc == '\0')
+		return ((char *) us);
+	return (NULL);
+}
 
 // strrchr
 
