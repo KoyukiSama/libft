@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 18:33:35 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 18:36:19 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (src_len);
 }
 
+// 	The  strlcat()  function  ap‐
+//  pends   the    NUL-terminated
+//  string src to the end of dst.
+//  It will append at most size -
+//  strlen(dst)  -  1 bytes, NUL-
+//  terminating the result. (from man page strlcat)
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	src_len;
