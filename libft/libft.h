@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 23:09:26 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/23 23:35:04 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int		ft_isprint(int c);
 int		toupper(int c);
 int		tolower(int c);
 
+// (ft_mem.c)
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+
 // (ft_str1.c)
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
@@ -39,5 +43,8 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*strnstr(const char *big, const char *little, size_t len);
+/// 	strdup
+
+///		atoi
 
 #endif
