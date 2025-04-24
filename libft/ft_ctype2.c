@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 15:37:56 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/25 01:37:28 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 
 int	ft_toupper(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char) c;
-	if (uc >= 'a' && uc <= 'z')
-		return (uc + 'A' - 'a');
+	if (c >= 'a' && c <= 'z')
+		return (c + 'A' - 'a');
 	return (c);
 }
 
 int	ft_tolower(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char) c;
-	if (uc >= 'A' && uc <= 'Z')
-		return (uc + 'a' - 'A');
+	if (c >= 'A' && c <= 'Z')
+		return (c + 'a' - 'A');
 	return (c);
 }
 
@@ -44,10 +38,7 @@ char	ft_tochar(int c)
 
 int	ft_isspace(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char) c;
-	if ((uc >= '\t' && uc <= '\r') || uc == ' ')
+	if ((c >= '\t' && c <= '\r') || c == ' ')
 		return (1);
 	return (0);
 }
