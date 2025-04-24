@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 00:54:52 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/24 14:47:19 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_isprint(int c);
 // (ft_ctype2.c)
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_isspace(int c);
 
 // (ft_mem1.c)
 void	*ft_memset(void *s, int c, size_t n);
@@ -48,7 +49,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 
 // (ft_str2.c)
-int		ft_strcmp(const char *s1, const char *s2);
+//int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*strnstr(const char *big, const char *little, size_t len);
 char	*strdup(const char *s);
