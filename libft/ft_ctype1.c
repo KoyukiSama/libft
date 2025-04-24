@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 23:53:53 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/24 14:02:35 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_isascii(int c)
 	unsigned char	uc;
 
 	uc = (unsigned char) c;
-	if (uc >= 0 && uc <= 127)
+	if (uc <= 127)
 		return (1);
 	return (0);
 }
