@@ -6,20 +6,21 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/24 14:24:42 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 15:47:45 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/24 15:51:02 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int	nbr;
 	int	sign;
 
 	nbr = 0;
 	sign = 1;
-	while (ft_isspace(*nptr++));
+	while (ft_isspace(*nptr))
+		nptr++;
 	if (*nptr == '-')
 	{
 		sign = -1;

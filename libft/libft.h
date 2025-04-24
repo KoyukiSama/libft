@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 15:49:12 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/24 15:49:59 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ char	*strnstr(const char *big, const char *little, size_t len);
 char	*strdup(const char *s);
 
 // (ft_stdlib.c)
-int atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
 
 #endif
