@@ -33,6 +33,18 @@ void memprint(const void *mem, size_t n)
 	printf("\n");
 }
 
+#define TEST_STRCMP(res1, res2, name)									\
+	do {																\
+		if (strcmp(res1, res2) == 0)									\
+			printf(GREEN "[PASS] " RESET "%s\n", name); 				\
+		else															\
+		{																\
+			printf(RED "[FAIL] " RESET "%s\n", name);					\
+			printf("MINE:  = %s", res1);								\
+			printf("CORR:  = %s", res2);								\
+		}																\
+	} while (0);														\
+
 #define TEST_PTRCMP(res1, res2, name)									\
 	do {																\
 		if ((uintptr_t)res1 == (uintptr_t)res2)							\
@@ -190,4 +202,22 @@ int main(void)
 	cpyofcpy = ft_strdup(cpy);
 	TEST_MEMCMP(cpyofcpy, cpy, 1, "ft_strdup(\"\")");
 	free(cpyofcpy);
+
+	printf("++++++++++++ft_substr++++++++++++\n");
+	// if failing, could mean not enough memory -> malloc fail NULL check include then
+	TEST_STRCMP(ft_substr("hello world", 0, 5), "hello", "ft_substr(\"hello world\", 0, 5)");
+	TEST_STRCMP(ft_substr("hello world", 6, 5), "world", "ft_substr(\"hello world\", 6, 5)");
+	TEST_STRCMP(ft_substr("hello world", 1, 3), "ell", "ft_substr(\"hello world\", 1, 3)");
+	TEST_STRCMP(ft_substr("hello world", 0, 0), "", "ft_substr(\"hello world\", 0, 0)");
+	TEST_STRCMP(ft_substr("hello world", 0, 100), "hello world", "ft_substr(\"hello world\", 0, 100)");
+	TEST_STRCMP(ft_substr("hello", 5, 10), "", "ft_substr(\"hello\", 5, 10)");
+	TEST_STRCMP(ft_substr("hello", 6, 1), "", "ft_substr(\"hello\", 6, 1)");
+	TEST_STRCMP(ft_substr("", 0, 0), "", "ft_substr(\"\", 0, 0)");
+	TEST_STRCMP(ft_substr("abc\0def", 0, 7), "abc", "ft_substr(\"abc\\0def\", 0, 7)");
+	
+	printf("++++++++++++ft_strjoin++++++++++++\n");
+	TEST_STRCMP(ft_strjoin("Hello", "World"), "HelloWorld", "ft_substr(\"Hello\", \"World\")");
+	TEST_STRCMP(ft_strjoin("", "World"), "World", "ft_substr(\"\", \"World\")");
+	TEST_STRCMP(ft_strjoin("", ""), "", "ft_substr(\"\", \"\")");
+	TEST_STRCMP(ft_strjoin("A", "B"), "AB", "ft_substr(\"A\", \"B\")");
 }
