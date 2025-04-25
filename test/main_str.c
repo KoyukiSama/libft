@@ -89,16 +89,38 @@ int main(void)
 	TEST_SIZETCMP(ft_strlen("a\0bcd"), strlen("a\0bcd"), "ft_strlen(\"a\\0bcd\")");
 	
 	printf("++++++++++++ft_strlcpy++++++++++++\n");
-	char ft_buf[10] = {0};
-	char buf[10] = {0};
-	char src[] = "AAABBBCCC";
+	char ft_buf[20] = {0};
+	char buf[20] = {0};
+	char src[] = "AAABB\0CCC";
+	char src2[] = "";
 	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 0), strlcpy(buf, src, 0), "ft_strlcpy(buf, src, 0): len");
-	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(buf, src, 0)");
+	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 0)");
+
 	ft_bzero(ft_buf, 10);
 	ft_bzero(buf, 10);
 	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 1), strlcpy(buf, src, 1), "ft_strcpy(buf, src, 1): len");
-	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(buf, src, 1)");
+	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 1)");
+
+	ft_bzero(ft_buf, 10);
+	ft_bzero(buf, 10);
+	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 10), strlcpy(buf, src, 10), "ft_strcpy(buf, src, 10): len");
+	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 10)");
+	
+	ft_bzero(ft_buf, 10);
+	ft_bzero(buf, 10);
+	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 3), strlcpy(buf, src, 3), "ft_strcpy(buf, src, 3): len");
+	TEST_MEMCMP(ft_buf, buf, 3, "ft_strlcpy(ft_buf, buf, 3)");
+
+	ft_bzero(ft_buf, 10);
+	ft_bzero(buf, 10);
+	TEST_SIZETCMP(ft_strlcpy(ft_buf, src2, 10), strlcpy(buf, src2, 10), "ft_strcpy(buf, src, 10): len");
+	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf-empty, 10)");
+	
+	printf("++++++++++++ft_strlcat++++++++++++\n");
+	char src_cat[] = "AAABBBCCC";
+	char dst[] = "hello";
+	char ft_dst[] = "hello";
+	TEST_SIZETCMP(ft_strlcat(ft_dst, src, 10), strlcat(dst, src, 10), "ft_strlcpy(buf, src, 0): len");
+	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 0)");
+
 }
-
-
-

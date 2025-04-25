@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/23 23:30:29 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/25 17:56:34 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	src_len = ft_strlen(src);
 	if (size == 0)
 		return (src_len);
-	while (size-- > 1 && *src)
+	size--;
+	if (size > src_len)
+		size = src_len;
+	while (size-- && *src)
 	{
 		*dst++ = *src++;
 	}
@@ -67,7 +70,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		src_len++;
 	}
 	if (dst_len == size)
-		return (src_len + size);
+		return (src_len + dst_len);
 	dst += dst_len;
 	rem = size - dst_len - 1;
 	while (rem-- > 0 && *src)
