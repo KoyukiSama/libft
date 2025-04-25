@@ -40,8 +40,8 @@ void memprint(const void *mem, size_t n)
 		else															\
 		{																\
 			printf(RED "[FAIL] " RESET "%s\n", name);					\
-			printf("MINE:  = %s", res1);								\
-			printf("CORR:  = %s", res2);								\
+			printf("MINE:  = \"%s\"\n", res1);							\
+			printf("CORR:  = \"%s\"\n", res2);							\
 		}																\
 	} while (0);														\
 
@@ -220,4 +220,16 @@ int main(void)
 	TEST_STRCMP(ft_strjoin("", "World"), "World", "ft_substr(\"\", \"World\")");
 	TEST_STRCMP(ft_strjoin("", ""), "", "ft_substr(\"\", \"\")");
 	TEST_STRCMP(ft_strjoin("A", "B"), "AB", "ft_substr(\"A\", \"B\")");
+
+	printf("++++++++++++ft_strtrim++++++++++++\n");
+	TEST_STRCMP(ft_strtrim(" hello ", " "), "hello", "ft_strtrim(\" Hello \", \" \")");
+	TEST_STRCMP(ft_strtrim("$$$hello$$$", "$"), "hello", "ft_strtrim(\"$$$hello$$$\", \"$\")");
+	TEST_STRCMP(ft_strtrim("..abc..", "."), "abc", "ft_strtrim(\"..abc..\", \".\")");
+	TEST_STRCMP(ft_strtrim("xyzabcxyz", "xyz"), "abc", "ft_strtrim(\"xyzabcxyz\", \"abc\")");
+	TEST_STRCMP(ft_strtrim("xyzabczyx", "zyx"), "abc", "ft_strtrim(\"xyzabczyx\", \"abc\")");
+	TEST_STRCMP(ft_strtrim("xyzabczyxbb", "zyx"), "abczyxbb", "ft_strtrim(\"xyzabczyxbb\", \"abc\")");
+	TEST_STRCMP(ft_strtrim("hello", "zyx"), "hello", "ft_strtrim(\"hello\", \"zyx\")");
+	TEST_STRCMP(ft_strtrim(".....", "."), "", "ft_strtrim(\".....\", \".\")");
+	TEST_STRCMP(ft_strtrim("", "abc"), "", "ft_strtrim(\"\", \"abc\")");
+	TEST_STRCMP(ft_strtrim(" ", " "), "", "ft_strtrim(\" \", \" \")");
 }
