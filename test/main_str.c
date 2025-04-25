@@ -118,9 +118,76 @@ int main(void)
 	
 	printf("++++++++++++ft_strlcat++++++++++++\n");
 	char src_cat[] = "AAABBBCCC";
-	char dst[] = "hello";
-	char ft_dst[] = "hello";
-	TEST_SIZETCMP(ft_strlcat(ft_dst, src, 10), strlcat(dst, src, 10), "ft_strlcpy(buf, src, 0): len");
-	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 0)");
+	char dst[] = "hello\0                    ";
+	char ft_dst[] = "hello\0                   ";
+	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 10), strlcat(dst, src_cat, 10), "ft_strlcat(dst, src, 10): len");
+	TEST_MEMCMP(ft_dst, dst, 10, "ft_strlcat(dst, src, 10)");
 
+	ft_strlcpy(dst, "hello", 5);
+	ft_strlcpy(ft_dst, "hello", 5);
+	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 3), strlcat(dst, src_cat, 3), "ft_strlcat(dst, src, 3): len");
+	TEST_MEMCMP(ft_dst, dst, 3, "ft_strlcat(dst, src, 3)");
+
+	ft_strlcpy(dst, "hello", 0);
+	ft_strlcpy(ft_dst, "hello", 0);
+	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 0), strlcat(dst, src_cat, 0), "ft_strlcat(dst, src, 0): len");
+	TEST_MEMCMP(ft_dst, dst, 0, "ft_strlcat(dst, src, 0)");
+	
+	ft_strlcpy(dst, "", 5);
+	ft_strlcpy(ft_dst, "", 5);
+	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 5), strlcat(dst, src_cat, 5), "ft_strlcat(dst, src, 5): len");
+	TEST_MEMCMP(ft_dst, dst, 5, "ft_strlcat(dst, src, 5)");
+
+	printf("++++++++++++ft_strchr++++++++++++\n");
+	ft_strlcpy(dst, "ABCDEABCDE", 10);
+	TEST_PTRCMP(ft_strchr(dst, 'A'), strchr(dst, 'A'), "ft_strchr(dst, 'A')");
+	TEST_PTRCMP(ft_strchr(dst, 'Z'), strchr(dst, 'Z'), "ft_strchr(dst, 'Z')");
+	TEST_PTRCMP(ft_strchr(dst, '\0'), strchr(dst, '\0'), "ft_strchr(dst, '\\0')");
+	ft_strlcpy(dst, "\0", 1);
+	TEST_PTRCMP(ft_strchr(dst, '\0'), strchr(dst, '\0'), "ft_strchr(dst, '\\0')");
+	TEST_PTRCMP(ft_strchr(dst, 'A'), strchr(dst, 'A'), "ft_strchr(dst, 'A')");
+
+	printf("++++++++++++ft_strrchr++++++++++++\n");
+	ft_strlcpy(dst, "ABCDEABCDE", 10);
+	TEST_PTRCMP(ft_strrchr(dst, 'A'), strrchr(dst, 'A'), "ft_strrchr(dst, 'A')");
+	TEST_PTRCMP(ft_strrchr(dst, 'Z'), strrchr(dst, 'Z'), "ft_strrchr(dst, 'Z')");
+	TEST_PTRCMP(ft_strrchr(dst, '\0'), strrchr(dst, '\0'), "ft_strrchr(dst, '\\0')");
+	ft_strlcpy(dst, "\0", 1);
+	TEST_PTRCMP(ft_strrchr(dst, '\0'), strrchr(dst, '\0'), "ft_strrchr(dst, '\\0')");
+	TEST_PTRCMP(ft_strrchr(dst, 'A'), strrchr(dst, 'A'), "ft_strrchr(dst, 'A')");
+	
+	printf("++++++++++++ft_strncmp++++++++++++\n");
+	TEST_INTCMP(ft_strncmp("abc", "abc", 3), strncmp("abc", "abc", 3), "ft_strncmp(\"abc\", \"abc\", 3)");
+	TEST_INTCMP(ft_strncmp("abc", "abd", 2), strncmp("abc", "abd", 2), "ft_strncmp(\"abc\", \"abd\", 2)");
+	TEST_INTCMP(ft_strncmp("abc", "abd", 3), strncmp("abc", "abd", 3), "ft_strncmp(\"abc\", \"abd\", 3)");
+	TEST_INTCMP(ft_strncmp("ab", "abc", 3), strncmp("ab", "abc", 3), "ft_strncmp(\"ab\", \"abc\", 3)");
+	TEST_INTCMP(ft_strncmp("abc", "ab", 3), strncmp("abc", "ab", 3), "ft_strncmp(\"abc\", \"ab\", 3)");
+	TEST_INTCMP(ft_strncmp("abc", "abc", 0), strncmp("abc", "abc", 0), "ft_strncmp(\"abc\", \"abc\", 0)");
+	TEST_INTCMP(ft_strncmp("abc", "ABC", 3), strncmp("abc", "ABC", 3), "ft_strncmp(\"abc\", \"ABC\", 3");
+	TEST_INTCMP(ft_strncmp("abc\0xyz", "abc\0xyz", 7), strncmp("abc\0xyz", "abc\0xyz", 7), "ft_strncmp(\"abc\\0xyz\", \"abc\\0xyz\", 7)");
+
+	printf("++++++++++++ft_strnstr++++++++++++\n");
+	ft_strlcpy(dst, "hello world", 100);
+	TEST_BYTECMP(*ft_strnstr(dst, "world", 11), 'w', "ft_strnstr(\"hello world\", \"world\", 11)");
+	TEST_PTRCMP(ft_strnstr(dst, "world", 5), NULL, "ft_strnstr(\"hello world\", \"world\", 5)");
+	TEST_BYTECMP(*ft_strnstr(dst, "", 50), 'h', "ft_strnstr(\"hello world\", \"\", 50)");
+	ft_strlcpy(dst, "", 100);
+	TEST_BYTECMP(*ft_strnstr(dst, "", 50), '\0', "ft_strnstr(\"\", \"\", 50)");
+	TEST_PTRCMP(ft_strnstr(dst, "abc", 50), NULL, "ft_strnstr(\"\", \"abc\", 50)");
+	ft_strlcpy(dst, "abcabcabc", 100);
+	TEST_BYTECMP(*ft_strnstr(dst, "cab", 6), 'c', "ft_strnstr(\"\", \"cab\", 6)");
+	
+	printf("++++++++++++ft_strdup++++++++++++\n");
+	char cpy[] = "hello";
+	char *cpyofcpy = ft_strdup(cpy);
+	TEST_MEMCMP(cpyofcpy, cpy, 6, "ft_strdup(\"hello\")");
+	free(cpyofcpy);
+	ft_strlcpy(cpy, "", 100);
+	cpyofcpy = ft_strdup(cpy);
+	TEST_MEMCMP(cpyofcpy, cpy, 1, "ft_strdup(\"\")");
+	free(cpyofcpy);
+	ft_strlcpy(cpy, "a\0bcd", 100);
+	cpyofcpy = ft_strdup(cpy);
+	TEST_MEMCMP(cpyofcpy, cpy, 1, "ft_strdup(\"\")");
+	free(cpyofcpy);
 }

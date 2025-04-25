@@ -38,7 +38,7 @@ testclean:
 
 testre: testclean test clean
 
-retest: testre
+retest: testre fclean
 	@i=1;
 	@for outp in $(TEST_OUT); do \
 	  printf "$(PINK)<3-----------|$(PINK_HOT) [TEST %d] : %s $(PINK)|---------------<3\n$(RESET)" "$$i" "$$outp"; \
