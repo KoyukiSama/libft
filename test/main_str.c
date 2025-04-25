@@ -1,8 +1,8 @@
 
 #include "../libft/libft.h"
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
 
 #define GREEN "\x1b[32m"
 #define RED "\x1b[31m"
@@ -40,8 +40,8 @@ void memprint(const void *mem, size_t n)
 		else															\
 		{																\
 			printf(RED "[FAIL] " RESET "%s\n", name);					\
-			printf("MINE:  = %p", res1);								\
-			printf("CORR:  = %p", res2);								\
+			printf("MINE:  = %p\n", res1);								\
+			printf("CORR:  = %p\n", res2);								\
 		}																\
 	} while (0);														\
 
@@ -52,8 +52,8 @@ void memprint(const void *mem, size_t n)
 		else															\
 		{																\
 			printf(RED "[FAIL] " RESET "%s\n", name);					\
-			printf("MINE:  = %cu", res1);								\
-			printf("CORR:  = %cu", res2);								\
+			printf("MINE:  = %cu\n", res1);								\
+			printf("CORR:  = %cu\n", res2);								\
 		}																\
 	} while (0);														\
 	
@@ -64,26 +64,41 @@ void memprint(const void *mem, size_t n)
 		else															\
 		{																\
 			printf(RED "[FAIL] " RESET "%s\n", name);					\
-			printf("MINE:  = %i", res1);								\
-			printf("CORR:  = %i", res2);								\
+			printf("MINE:  = %i\n", res1);								\
+			printf("CORR:  = %i\n", res2);								\
+		}																\
+	} while (0);														\
+
+#define TEST_SIZETCMP(res1, res2, name)									\
+	do {																\
+		if (res1 == res2)												\
+			printf(GREEN "[PASS] " RESET "%s\n", name); 				\
+		else															\
+		{																\
+			printf(RED "[FAIL] " RESET "%s\n", name);					\
+			printf("MINE:  = %lu\n", res1);								\
+			printf("CORR:  = %lu\n", res2);								\
 		}																\
 	} while (0);														\
 
 int main(void)
 {
-	printf("++++++++++++ft_atoi++++++++++++\n");
-
-	TEST_INTCMP(ft_atoi("42"), atoi("42"), "ft_atoi(\"42\")");
-	TEST_INTCMP(ft_atoi("   -123"), atoi("   -123"), "ft_atoi(\"   -123\")");
-	TEST_INTCMP(ft_atoi("+99"), atoi("+99"), "ft_atoi(\"+99\")");
-	TEST_INTCMP(ft_atoi("abc"), atoi("abc"), "ft_atoi(\"abc\")");
-	TEST_INTCMP(ft_atoi("123abc"), atoi("123abc"), "ft_atoi(\"123abc\")");
-	TEST_INTCMP(ft_atoi("   +00000"), atoi("   +00000"), "ft_atoi(\"   +00000\")");
-	TEST_INTCMP(ft_atoi("2147483647"), atoi("2147483647"), "ft_atoi(\"2147483647\")");
-	TEST_INTCMP(ft_atoi("-2147483648"), atoi("-2147483648"), "ft_atoi(\"-2147483648\")");
-	TEST_INTCMP(ft_atoi("  ++-4404"), atoi("  ++-4404"), "ft_atoi(\"  ++-4404\")");
-	TEST_INTCMP(ft_atoi("  +-+4404"), atoi("  +-+4404"), "ft_atoi(\"  +-+4404\")");
-	TEST_INTCMP(ft_atoi("  -+-4404"), atoi("  -+-4404"), "ft_atoi(\"  -+-4404\")");
+	printf("++++++++++++ft_strlen++++++++++++\n");
+	TEST_SIZETCMP(ft_strlen("helooooo"), strlen("helooooo"), "ft_strlen(\"helooooo\")");
+	TEST_SIZETCMP(ft_strlen(""), strlen(""), "ft_strlen(\"\")");
+	TEST_SIZETCMP(ft_strlen("a\0bcd"), strlen("a\0bcd"), "ft_strlen(\"a\\0bcd\")");
+	
+	printf("++++++++++++ft_strlcpy++++++++++++\n");
+	char ft_buf[10] = {0};
+	char buf[10] = {0};
+	char src[] = "AAABBBCCC";
+	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 0), strlcpy(buf, src, 0), "ft_strlcpy(buf, src, 0): len");
+	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(buf, src, 0)");
+	ft_bzero(ft_buf, 10);
+	ft_bzero(buf, 10);
+	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 1), strlcpy(buf, src, 1), "ft_strcpy(buf, src, 1): len");
+	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(buf, src, 1)");
 }
+
 
 
