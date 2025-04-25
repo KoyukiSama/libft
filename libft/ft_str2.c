@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 14:26:06 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/25 18:53:06 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	if (n == 0)
 		return (0);
-	while (n-- > 0 && *s1 == *s2 && *s1)
+	while (n-- > 1 && *s1 == *s2 && *s1)
 	{
 		s1++;
 		s2++;
@@ -41,7 +41,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 //    pointer  to the first charac‐
 //    ter of the  first  occurrence
 //    of little is returned.		(from man page strnstr)
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t		i;
 
@@ -62,7 +62,7 @@ char	*strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-char	*strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	size_t	size;
 	size_t	i;

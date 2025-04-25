@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/24 15:49:59 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/25 18:53:22 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ char	*ft_strrchr(const char *s, int c);
 // (ft_str2.c)
 //int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*strnstr(const char *big, const char *little, size_t len);
-char	*strdup(const char *s);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strdup(const char *s);
 
 // (ft_stdlib.c)
 int		ft_atoi(const char *nptr);
