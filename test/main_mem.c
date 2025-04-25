@@ -35,16 +35,19 @@ void memprint(const void *mem, size_t n)
 
 int main(void)
 {
-	char ft_buf[100];
-	char buf[100];
-
-	ft_memset(buf, 0, 100);
-	ft_memset(ft_buf, 0, 100);
+	printf("------------memset------------\n");
+	char ft_buf[100] = {0};
+	char buf[100] = {0};
 	TEST(ft_memset(ft_buf, 'A', 0), buf, 100, "ft_memset(buf, 'A', 0)");
 	TEST(ft_memset(ft_buf, 'X', 5), memset(buf, 'X', 5), 100, "ft_memset(buf, 'X', 5)");
 	TEST(ft_memset(ft_buf, 255, 3), memset(buf, 255, 3), 100, "ft_memset(buf, 255, 3)");
 	TEST(ft_memset(ft_buf, 0, 4), memset(buf, 0, 4), 100, "ft_memset(buf, 0, 4)");
 
+	printf("------------memcpy------------\n");
+	char src_buf[100] = {5};
+	TEST(ft_memcpy(ft_buf, src_buf, 0), memcpy(buf, src_buf, 0), 100, "ft_memcpy(buf, src, 0)");
+	memset(src_buf, 'A', 100);
+	TEST(ft_memcpy(ft_buf, src_buf, 5), memcpy(buf, src_buf, 5), 100, "ft_memcpy(buf, src, 5)");
 }
 
 
