@@ -1,24 +1,29 @@
 
-NAME         := libft.a
-CC           := gcc
-CFLAGS       := -Wall -Wextra -Werror
+NAME	:= libft.a
+CC		:= gcc
+CFLAGS	:= -Wall -Wextra -Werror
 
-SRC     := $(wildcard *.c)
-OBJ     := $(SRC:.c=.o)
-
-$(NAME): $(OBJ)
-	ar rcs $@ $^
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+SRC		:= ft_ctype1.c ft_ctype2.c \
+			ft_mem1.c ft_mem2.c \
+			ft_stlib.c \
+			ft_str1.c ft_str2.c ft_str3.c
+OBJ		:= $(SRC:.c=.o)
 
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -f *.o
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 	$(MAKE) clean
+
+.PHONY: all clean fclean re

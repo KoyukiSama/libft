@@ -9,7 +9,8 @@ SRC_DIR := ../$(PROJECT_NAME)
 SRC     := $(wildcard $(SRC_DIR)/*.c)
 OBJ     := $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
 
-TEST_SRC := $(wildcard *.c)
+TEST_MACROS := tester_macro.c
+TEST_SRC := main_ctype.c main_mem.c main_stdlib.c main_str.c
 TEST_OUT := $(TEST_SRC:%.c=%.out)
 
 PINK      := \033[38;5;13m
@@ -22,7 +23,7 @@ $(NAME): $(OBJ)
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -c $^ -o $@
 
-%.out: %.c $(NAME)
+%.out: %.c $(NAME) $(TEST_MACROS)
 	@$(CC) $(CFLAGS) $^ -L. -lft -o $@
 
 test: $(NAME) $(TEST_OUT)

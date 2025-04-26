@@ -6,13 +6,12 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/26 00:57:52 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/26 02:22:31 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define EOF -1
 
 # include <stddef.h>
 # include <stdlib.h>
