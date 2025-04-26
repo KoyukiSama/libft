@@ -4,15 +4,16 @@
 // ft_split helpers
 static size_t	ft_is_strend(char const *char_ptr, char c);
 static size_t	ft_countstr_dilimiter(char const *s, char c);
-static char		*ft_alloc_nxtstr(char const *str, char c, char **next_str);
-static char		*ft_free_strs(char **strs);
+static char		*ft_alloc_nxtstr(char const *str, char c, char const **next_str);
+static char		**ft_pp_empty_alloc();
+static char		**ft_free_strs(char **strs);
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	total_strs;
-	char	**strs_ptr;
-	char	*next_str;
-	size_t	i;
+	size_t		total_strs;
+	char		**strs_ptr;
+	char const	*next_str;
+	size_t		i;
 
 	if (*s == '\0')
 		return (ft_pp_empty_alloc());
@@ -21,7 +22,7 @@ char	**ft_split(char const *s, char c)
 	if (!strs_ptr)
 		return (NULL);
 	i = 0;
-	next_str = (char *) s;
+	next_str = s;
 	while (i < total_strs && next_str)
 	{
 		strs_ptr[i] = ft_alloc_nxtstr(next_str, c, &next_str);
@@ -33,25 +34,18 @@ char	**ft_split(char const *s, char c)
 	return (strs_ptr);
 }
 
-// checks if the char next to charptr is c or '\0'
-static size_t	ft_is_strend(char const *char_ptr, char c)
-{
-	if ((*char_ptr != c && *(char_ptr + 1) == c)
-		|| (*char_ptr != '\0' && *(char_ptr + 1) == '\0'))
-		return (1);
-	return (0);
-}
-
 static size_t	ft_countstr_dilimiter(char const *s, char c)
 {
 	size_t	count;
+	size_t	i;
 	
 	count = 0;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		if (ft_is_strend(s, c))
+		if ((i == 0 || s[i - 1] == c) && s[i] != c)
 			count++;
-		s++;
+		i++;
 	}
 	return (count);
 }
@@ -60,18 +54,18 @@ static size_t	ft_countstr_dilimiter(char const *s, char c)
 //
 // return parms	: start of next_str
 // 				: OR NULL if str end was '\0'
-static char	*ft_alloc_nxtstr(char const *str, char c, char **next_str)
+static char	*ft_alloc_nxtstr(char const *str, char c, char const **next_str)
 {
-	size_t	str_len;
+	size_t	strs_len;
 	char	*sub;
 	char	*sub_ret;
 	
 	while (*str == c)
 		str++;
-	str_len = 0;
-	while (!ft_is_strend(str + str_len, c))
-		str_len++;
-	sub = malloc(str_len + 1);
+	strs_len = 0;
+	while (!ft_is_strend(str + strs_len, c))
+		strs_len++;
+	sub = malloc(strs_len + 1);
 	if (!sub)
 		return (NULL);
 	sub_ret = sub;
@@ -85,12 +79,12 @@ static char	*ft_alloc_nxtstr(char const *str, char c, char **next_str)
 	return (sub_ret);
 }
 
-static char	*ft_free_strs(char **strs)
+static char	**ft_free_strs(char **strs)
 {
 	while (*strs)
 		free(*strs++);
 	free(strs);
-	return(NULL);
+	return (NULL);
 }
 
 static char	**ft_pp_empty_alloc()

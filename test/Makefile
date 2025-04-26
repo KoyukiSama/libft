@@ -10,7 +10,7 @@ SRC     := $(wildcard $(SRC_DIR)/*.c)
 OBJ     := $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
 
 TEST_MACROS := tester_macro.c
-TEST_SRC := main_ctype.c main_mem.c main_stdlib.c main_str.c
+TEST_SRC := main_ctype.c main_mem.c main_stdlib.c main_str.c main_str2.c
 TEST_OUT := $(TEST_SRC:%.c=%.out)
 
 PINK      := \033[38;5;13m

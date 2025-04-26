@@ -5,12 +5,16 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define GREEN "\x1b[32m"
 #define RED "\x1b[31m"
 #define RESET "\x1b[0m"
 
-void memprint(const void *mem, size_t n);
+void	memprint(const void *mem, size_t n);
+int		strscmp(char **strs1, char **strs2);
+void	print_strs(char **strs);
+void	free_strs(char **strs);
 
 #define TEST_MEMCMP(res1, res2, n, name)								\
 	do {																\
@@ -35,6 +39,20 @@ void memprint(const void *mem, size_t n);
 			printf(RED "[FAIL] " RESET "%s\n", name);					\
 			printf("MINE:  = \"%s\"\n", res1);							\
 			printf("CORR:  = \"%s\"\n", res2);							\
+		}																\
+	} while (0);														\
+	
+#define TEST_STRSCMP(res1, res2, name)									\
+	do {																\
+		if (strscmp(res1, res2) == 0)									\
+			printf(GREEN "[PASS] " RESET "%s\n", name); 				\
+		else															\
+		{																\
+			printf(RED "[FAIL] " RESET "%s\n", name);					\
+			printf("MINE:  = ");										\
+			print_strs(res1);											\
+			printf("CORR:  = ");										\
+			print_strs(res2);											\
 		}																\
 	} while (0);														\
 
