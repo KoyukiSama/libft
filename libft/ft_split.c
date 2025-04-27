@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/27 13:28:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 15:33:35 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/27 15:48:14 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static char	**ft_ss_empty_alloc(void);
 char	**ft_split(char const *s, char c)
 {
 	t_ss	s_ss;
-	size_t	i;
 
 	if (*s == '\0')
 		return (ft_ss_empty_alloc());

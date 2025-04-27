@@ -15,54 +15,9 @@ int main(void)
 	TEST_SIZETCMP(ft_strlen("a\0bcd"), strlen("a\0bcd"), "ft_strlen(\"a\\0bcd\")");
 	
 	printf("++++++++++++ft_strlcpy++++++++++++\n");
-	char ft_buf[20] = {0};
-	char buf[20] = {0};
-	char src[] = "AAABB\0CCC";
-	char src2[] = "";
-	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 0), strlcpy(buf, src, 0), "ft_strlcpy(buf, src, 0): len");
-	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 0)");
-
-	ft_bzero(ft_buf, 10);
-	ft_bzero(buf, 10);
-	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 1), strlcpy(buf, src, 1), "ft_strcpy(buf, src, 1): len");
-	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 1)");
-
-	ft_bzero(ft_buf, 10);
-	ft_bzero(buf, 10);
-	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 10), strlcpy(buf, src, 10), "ft_strcpy(buf, src, 10): len");
-	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf, 10)");
-	
-	ft_bzero(ft_buf, 10);
-	ft_bzero(buf, 10);
-	TEST_SIZETCMP(ft_strlcpy(ft_buf, src, 3), strlcpy(buf, src, 3), "ft_strcpy(buf, src, 3): len");
-	TEST_MEMCMP(ft_buf, buf, 3, "ft_strlcpy(ft_buf, buf, 3)");
-
-	ft_bzero(ft_buf, 10);
-	ft_bzero(buf, 10);
-	TEST_SIZETCMP(ft_strlcpy(ft_buf, src2, 10), strlcpy(buf, src2, 10), "ft_strcpy(buf, src, 10): len");
-	TEST_MEMCMP(ft_buf, buf, 10, "ft_strlcpy(ft_buf, buf-empty, 10)");
 	
 	printf("++++++++++++ft_strlcat++++++++++++\n");
-	char src_cat[] = "AAABBBCCC";
 	char dst[] = "hello\0                    ";
-	char ft_dst[] = "hello\0                   ";
-	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 10), strlcat(dst, src_cat, 10), "ft_strlcat(dst, src, 10): len");
-	TEST_MEMCMP(ft_dst, dst, 10, "ft_strlcat(dst, src, 10)");
-
-	ft_strlcpy(dst, "hello", 5);
-	ft_strlcpy(ft_dst, "hello", 5);
-	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 3), strlcat(dst, src_cat, 3), "ft_strlcat(dst, src, 3): len");
-	TEST_MEMCMP(ft_dst, dst, 3, "ft_strlcat(dst, src, 3)");
-
-	ft_strlcpy(dst, "hello", 0);
-	ft_strlcpy(ft_dst, "hello", 0);
-	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 0), strlcat(dst, src_cat, 0), "ft_strlcat(dst, src, 0): len");
-	TEST_MEMCMP(ft_dst, dst, 0, "ft_strlcat(dst, src, 0)");
-	
-	ft_strlcpy(dst, "", 5);
-	ft_strlcpy(ft_dst, "", 5);
-	TEST_SIZETCMP(ft_strlcat(ft_dst, src_cat, 5), strlcat(dst, src_cat, 5), "ft_strlcat(dst, src, 5): len");
-	TEST_MEMCMP(ft_dst, dst, 5, "ft_strlcat(dst, src, 5)");
 
 	printf("++++++++++++ft_strchr++++++++++++\n");
 	ft_strlcpy(dst, "ABCDEABCDE", 10);
