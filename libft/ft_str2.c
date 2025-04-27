@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/25 18:53:06 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/27 14:38:25 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,25 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	i = 0;
 	while (i < size)
+	{
+		s_new[i] = s[i];
+		i++;
+	}
+	return (s_new);
+}
+
+// copies from src and len and returns allocated copy
+// terminates the str automatically
+char	*ft_str_mallocpy(const char *s, size_t ln)
+{
+	size_t	i;
+	char	*s_new;
+
+	s_new = malloc(ln + 1);
+	if (!s_new == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
 		s_new[i] = s[i];
 		i++;
