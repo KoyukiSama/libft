@@ -1,44 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_split.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/04/27 13:28:18 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/04/27 15:33:35 by kclaes        ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
 // ft_split helpers
-static size_t	ft_is_strend(char const *char_ptr, char c);
-static size_t	ft_countstr_dilimiter(char const *s, char c);
-static char		*ft_alloc_nxtstr(char const *str, char c, char const **next_str);
-static char		**ft_pp_empty_alloc();
-static char		**ft_free_strs(char **strs);
+static char	**ft_malloc_ss(const char *s, char c, size_t *strs_count);
+static void	ft_get_start_len(const char *s, char c, t_ss s_ss);
+static void	ft_populate(const char *s, t_ss s_ss);
+static char	**ft_ss_empty_alloc(void);
 
 char	**ft_split(char const *s, char c)
 {
-	size_t		total_strs;
-	char		**strs_ptr;
-	char const	*next_str;
-	size_t		i;
+	t_ss	s_ss;
+	size_t	i;
 
 	if (*s == '\0')
-		return (ft_pp_empty_alloc());
-	total_strs = ft_countstr_dilimiter(s, c);
-	strs_ptr = malloc((total_strs + 1) * sizeof(char *));
-	if (!strs_ptr)
+		return (ft_ss_empty_alloc());
+	s_ss.ss = ft_malloc_ss(s, c, &(s_ss.ss_ln));
+	s_ss.s_starts = malloc(s_ss.ss_ln * sizeof(size_t));
+	s_ss.s_lens = malloc(s_ss.ss_ln * sizeof(size_t));
+	if (!s_ss.ss || !s_ss.s_starts || !s_ss.s_lens)
 		return (NULL);
-	i = 0;
-	next_str = s;
-	while (i < total_strs && next_str)
-	{
-		strs_ptr[i] = ft_alloc_nxtstr(next_str, c, &next_str);
-		if (!strs_ptr[i])
-			return (ft_free_strs(strs_ptr));
-		i++;
-	}
-	strs_ptr[i] = NULL;
-	return (strs_ptr);
+	ft_get_start_len(s, c, s_ss);
+	ft_populate(s, s_ss);
+	free(s_ss.s_starts);
+	free(s_ss.s_lens);
+	return (s_ss.ss);
 }
 
-static size_t	ft_countstr_dilimiter(char const *s, char c)
+// malloc strs
+static char	**ft_malloc_ss(const char *s, char c, size_t *strs_count)
 {
 	size_t	count;
 	size_t	i;
-	
+
 	count = 0;
 	i = 0;
 	while (s[i])
@@ -47,53 +51,66 @@ static size_t	ft_countstr_dilimiter(char const *s, char c)
 			count++;
 		i++;
 	}
-	return (count);
+	*strs_count = count;
+	return (malloc(count * sizeof(char *) + 1));
 }
 
-// return		: ptr to alloc sub
-//
-// return parms	: start of next_str
-// 				: OR NULL if str end was '\0'
-static char	*ft_alloc_nxtstr(char const *str, char c, char const **next_str)
+// malloc arr_start arr_len
+// returns:		arr_start
+// return parm: arr_len
+static void	ft_get_start_len(const char *s, char c, t_ss s_ss)
 {
-	size_t	strs_len;
-	char	*sub;
-	char	*sub_ret;
-	
-	while (*str == c)
-		str++;
-	strs_len = 0;
-	while (!ft_is_strend(str + strs_len, c))
-		strs_len++;
-	sub = malloc(strs_len + 1);
-	if (!sub)
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if ((i == 0 || s[i - 1] == c) && s[i] != c)
+		{
+			s_ss.s_starts[j] = i;
+			s_ss.s_lens[j] = 0;
+			while (s[i] != c && s[i])
+			{
+				s_ss.s_lens[j]++;
+				i++;
+			}
+			i--;
+			j++;
+		}
+		i++;
+	}
+}
+
+// ss will become *ss == NULL if strs malloc fails
+static void	ft_populate(const char *s, t_ss s_ss)
+{
+	size_t	i;
+
+	while (i < s_ss.ss_ln)
+	{
+		s_ss.ss[i] = ft_str_mallocpy(s + s_ss.s_starts[i], s_ss.s_lens[i]);
+		if (!s_ss.ss[i])
+		{
+			while (i)
+				free(s_ss.ss[--i]);
+			free(s_ss.ss);
+			s_ss.ss = NULL;
+			return ;
+		}
+		i++;
+	}
+	s_ss.ss[i] = NULL;
+}
+
+static char	**ft_ss_empty_alloc(void)
+{
+	char	**ss;
+
+	ss = malloc(sizeof(char *));
+	if (!ss)
 		return (NULL);
-	sub_ret = sub;
-	while (!ft_is_strend(str, c))
-		*sub++ = *str++;
-	*sub = '\0';
-	if (*str == '\0')
-		*next_str = NULL;
-	else
-		*next_str = ++str;
-	return (sub_ret);
-}
-
-static char	**ft_free_strs(char **strs)
-{
-	while (*strs)
-		free(*strs++);
-	free(strs);
-	return (NULL);
-}
-
-static char	**ft_pp_empty_alloc()
-{
-	char **strs;
-
-	strs = malloc(sizeof(char *));
-	if (!strs)
-		return (NULL);
-	*strs = NULL;
-	return (strs);
+	*ss = NULL;
+	return (ss);
 }
