@@ -1,38 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_str2.c                                          :+:    :+:            */
+/*   ft_strnstr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 16:41:58 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/27 18:46:54 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// int	ft_strcmp(const char *s1, const char *s2)
-// {
-// 	while (*s1 == *s2 && *s1)
-// 	{
-// 		s1++;
-// 		s2++;
-// 	}
-// 	return ((int)((unsigned char) *s1 - (unsigned char) *s2));
-// }
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	if (n == 0)
-		return (0);
-	while (n-- > 1 && *s1 == *s2 && *s1)
-	{
-		s1++;
-		s2++;
-	}
-	return ((int)((unsigned char) *s1 - (unsigned char) *s2));
-}
 
 //    If little is an empty string,
 //    big is  returned;  if  little
@@ -60,43 +38,4 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		len--;
 	}
 	return (NULL);
-}
-
-char	*ft_strdup(const char *s)
-{
-	size_t	size;
-	size_t	i;
-	char	*s_new;
-
-	size = ft_strlen(s) + 1;
-	s_new = malloc(size);
-	if (!s_new)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		s_new[i] = s[i];
-		i++;
-	}
-	return (s_new);
-}
-
-// copies from src and len and returns allocated copy
-// terminates the str automatically
-char	*ft_str_mallocpy(const char *s, size_t ln)
-{
-	size_t	i;
-	char	*s_new;
-
-	s_new = malloc(ln + 1);
-	if (!s_new)
-		return (NULL);
-	i = 0;
-	while (i < ln)
-	{
-		s_new[i] = s[i];
-		i++;
-	}
-	s_new[i] = '\0';
-	return (s_new);
 }

@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_ctype2.c                                        :+:    :+:            */
+/*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/25 01:37:28 by kclaes        ########   odam.nl         */
+/*   Created: 2025/04/23 23:02:25 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/04/27 18:40:19 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+//	The  memchr()  and  memrchr()
+//	functions return a pointer to
+//	the matching byte or NULL  if
+//	the  character does not occur
+//	in the given memory area.	 (from man page memchr)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c + 'A' - 'a');
-	return (c);
-}
+	const unsigned char	*us;
+	unsigned char		uc;
 
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 'a' - 'A');
-	return (c);
-}
-
-int	ft_toint(char c)
-{
-	return ((int)(c - '0'));
-}
-
-char	ft_tochar(int c)
-{
-	return ((char)(c + '0'));
-}
-
-int	ft_isspace(int c)
-{
-	if ((c >= '\t' && c <= '\r') || c == ' ')
-		return (1);
-	return (0);
+	us = (const unsigned char *) s;
+	uc = (unsigned char) c;
+	while (n--)
+	{
+		if (*us == uc)
+			return ((void *) us);
+		us++;
+	}
+	return (NULL);
 }

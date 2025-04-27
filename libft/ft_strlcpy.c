@@ -1,47 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_ctype1.c                                        :+:    :+:            */
+/*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/25 01:37:45 by kclaes        ########   odam.nl         */
+/*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/04/27 18:42:27 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if ((c >= 'a' && c <= 'z')
-		|| (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
-}
+	size_t	src_len;
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	ft_isalnum(int c)
-{
-	return (ft_isalpha(c) || ft_isdigit(c));
-}
-
-int	ft_isascii(int c)
-{
-	if (c <= 127)
-		return (1);
-	return (0);
-}
-
-int	ft_isprint(int c)
-{
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
+	size--;
+	if (size > src_len)
+		size = src_len;
+	while (size-- && *src)
+	{
+		*dst++ = *src++;
+	}
+	*dst = '\0';
+	return (src_len);
 }
