@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 15:49:42 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/27 16:41:58 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,11 @@ char	*ft_str_mallocpy(const char *s, size_t ln)
 	if (!s_new)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (i < ln)
 	{
 		s_new[i] = s[i];
 		i++;
 	}
+	s_new[i] = '\0';
 	return (s_new);
 }
