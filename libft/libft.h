@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 15:39:49 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/27 15:45:03 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,19 @@
 # include <stdlib.h>
 # include <stdint.h>
 
-typedef struct	s_ss
-{
-	char	**ss;
-	size_t	ss_ln;
-	size_t	*s_starts;
-	size_t	*s_lens
-}				t_ss;
-
 // (ft_ctype1.c)
-int				ft_isalpha(int c);
-int				ft_isdigit(int c);
-int				ft_isalnum(int c);
-int				ft_isascii(int c);
-int				ft_isprint(int c);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
 
 // (ft_ctype2.c)
-int				ft_toupper(int c);
-int				ft_tolower(int c);
-int				ft_toint(char c);
-char			ft_tochar(int c);
-int				ft_isspace(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+int		ft_toint(char c);
+char	ft_tochar(int c);
+int		ft_isspace(int c);
 
 // (ft_mem1.c)
 void	*ft_memset(void *s, int c, size_t n);
@@ -70,6 +62,14 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 
 // (ft_split.c)
+typedef struct s_ss
+{
+	char	**ss;
+	size_t	ss_ln;
+	size_t	*s_starts;
+	size_t	*s_lens;
+}	t_ss;
+
 char	**ft_split(char const *s, char c);
 
 // (ft_stdlib.c)
