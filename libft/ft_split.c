@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/27 13:28:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 15:48:14 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/27 16:49:19 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	**ft_malloc_ss(const char *s, char c, size_t *strs_count)
 		i++;
 	}
 	*strs_count = count;
-	return (malloc(count * sizeof(char *) + 1));
+	return (malloc((count + 1) * sizeof(char *)));
 }
 
 // malloc arr_start arr_len
@@ -87,6 +87,7 @@ static void	ft_populate(const char *s, t_ss s_ss)
 {
 	size_t	i;
 
+	i = 0;
 	while (i < s_ss.ss_ln)
 	{
 		s_ss.ss[i] = ft_str_mallocpy(s + s_ss.s_starts[i], s_ss.s_lens[i]);
