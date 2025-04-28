@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_digits.c                                        :+:    :+:            */
+/*   ft_striteri.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/28 13:42:24 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 22:31:24 by kclaes        ########   odam.nl         */
+/*   Created: 2025/04/28 19:26:11 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/04/28 19:39:20 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stdlib.h"
 
-int	ft_digits(int nbr)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	count;
+	unsigned int	i;
 
-	if (nbr == 0)
-		return (1);
-	count = 0;
-	while (nbr)
+	i = 0;
+	while (s[i])
 	{
-		nbr /= 10;
-		count++;
+		f(i, s + i);
+		i++;
 	}
-	return (count);
 }

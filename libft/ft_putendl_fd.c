@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_digits.c                                        :+:    :+:            */
+/*   ft_putendl_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/28 13:42:24 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 22:31:24 by kclaes        ########   odam.nl         */
+/*   Created: 2025/04/28 21:18:54 by kclaes        #+#    #+#                 */
+/*   Updated: 2025/04/28 21:34:04 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int	ft_digits(int nbr)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	count;
-
-	if (nbr == 0)
-		return (1);
-	count = 0;
-	while (nbr)
-	{
-		nbr /= 10;
-		count++;
-	}
-	return (count);
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

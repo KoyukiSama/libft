@@ -6,13 +6,13 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/28 19:05:20 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 19:11:15 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/28 22:31:41 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*s_new;
 	size_t	i;

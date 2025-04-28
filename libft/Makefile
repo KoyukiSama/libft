@@ -11,13 +11,23 @@ SRC		:= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c \
 			ft_strrchr.c ft_strcmp.c ft_strncmp.c ft_strnstr.c \
 			ft_strdup.c ft_str_mallocpy.c ft_substr.c ft_strjoin.c \
-			ft_strtrim.c ft_split.c ft_atoi.c
+			ft_strtrim.c ft_split.c ft_atoi.c ft_isdigit.c ft_itoa.c ft_strmapi.c \
+			ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_.c \
+			ft_putnbr_fd.c
 OBJ		:= $(SRC:.c=.o)
+
+SRC_BONUS	:= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+				ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap.c
+OBJ_BONUS	:= $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
+bonus: $(OBJ) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -31,4 +41,4 @@ fclean: clean
 re: fclean all
 	$(MAKE) clean
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
