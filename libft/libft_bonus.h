@@ -6,12 +6,14 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/28 22:37:06 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 22:40:35 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/28 23:28:51 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_BONUS_H
 # define LIBFT_BONUS_H
+
+# include <stdlib.h>
 
 typedef struct s_list
 {

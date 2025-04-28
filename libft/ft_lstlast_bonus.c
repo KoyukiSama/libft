@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew_bonus.c                                  :+:    :+:            */
+/*   ft_lstlast_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/28 22:42:26 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 23:29:30 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/28 23:09:19 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_bonus.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*list;
-
-	list = malloc(sizeof(*list));
-	if (!list)
-		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
