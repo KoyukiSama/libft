@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/28 13:35:40 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 14:45:03 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/28 14:57:54 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ char *ft_itoa(int n)
 	int		str_len;
 
 	str_len = 0;
-	sign = 1;
+	sign = 0;
 	if (n < 0)
 	{
-		sign = -1;
 		str_len++;
+		sign = 1;
+		n = -n;
 	}
 	str_len += ft_digits(n);
 	str = malloc(str_len + 1);
@@ -35,11 +36,11 @@ char *ft_itoa(int n)
 	while (str_len >= 0)
 	{
 		printf("in loop str[%i]: %c\n", str_len, ft_tochar(str[str_len]));
-		str[str_len] = (n % 10) + '0';
+		str[str_len] = ft_tochar(n % 10);
 		n /= 10;
 		str_len--;
 	}
-	if (sign == -1)
+	if (sign)
 		str[0] = '-';
 	printf("str[0]: %c\n", str[0]);
 	return (str);
