@@ -42,6 +42,19 @@ void	free_strs(char **strs);
 			printf("MINE:  = \"%s\"\n", res1);							\
 			printf("CORR:  = \"%s\"\n", res2);							\
 		}																\
+		free(res1);														\
+	} while (0);														\
+
+#define TEST_STRCMP_NOFREE(res1, res2, name)									\
+	do {																\
+		if (strcmp(res1, res2) == 0)									\
+			printf(GREEN "[PASS] " RESET "%s\n", name); 				\
+		else															\
+		{																\
+			printf(RED "[FAIL] " RESET "%s\n", name);					\
+			printf("MINE:  = \"%s\"\n", res1);							\
+			printf("CORR:  = \"%s\"\n", res2);							\
+		}																\
 	} while (0);														\
 	
 #define TEST_STRSCMP(res1, res2, name)									\
@@ -56,6 +69,12 @@ void	free_strs(char **strs);
 			printf("CORR:  = ");										\
 			print_strs(res2);											\
 		}																\
+		int i = 0;														\
+		while (res1[i])													\
+		{																\
+			free(res1[i++]);											\
+		}																\
+		free(res1);														\
 	} while (0);														\
 
 #define TEST_PTRCMP(res1, res2, name)									\

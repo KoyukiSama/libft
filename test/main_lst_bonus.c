@@ -69,11 +69,12 @@ int main(void)
 	ft_lstiter(lst, f2);
 	lst_printer(lst);
 	printf(GREEN"[PASS] "RESET"ft_lstiter(UPPER, LOWER) \n");
-	t_list *node_to_del = lst->next->next->next;
-	lst->next->next = node_to_del->next;
-	ft_lstdelone(node_to_del, free);
+	t_list *prev = lst->next->next;
+	t_list *to_del = prev->next;
+	prev->next = to_del->next;
+	ft_lstdelone(to_del, free);
 	printf(GREEN"[PASS] "RESET"ft_lstdelone( node [ \"start\" ] ) \n"); lst_printer(lst);
-	t_list *LIST2_YAYYY= ft_lstmap(lst, f1_mapi, free);
+	t_list *LIST2_YAYYY = ft_lstmap(lst, f1_mapi, free);
 	printf(GREEN"[PASS] "RESET"ft_lstmapi(UPPER) \n"); lst_printer(LIST2_YAYYY);
 	ft_lstclear(&lst, free);
 	ft_lstclear(&LIST2_YAYYY, free);

@@ -67,11 +67,11 @@ int main(void)
 	printf("++++++++++++ft_striteri++++++++++++\n");
     char s3[] = "Hello, World!";
     ft_striteri(s3, trans_upper_it);
-    TEST_STRCMP(s3, "HELLO, WORLD!", "ft_striteri(\"Hello, World!\", trans_upper_it)");
+    TEST_STRCMP_NOFREE(s3, "HELLO, WORLD!", "ft_striteri(\"Hello, World!\", trans_upper_it)");
     char s4[] = "abcd";
     ft_striteri(s4, trans_shifti_it);
-    TEST_STRCMP(s4, "aceg", "ft_striteri(\"abcd\", trans_shifti_it)");
+    TEST_STRCMP_NOFREE(s4, "aceg", "ft_striteri(\"abcd\", trans_shifti_it)");
     char s5[] = "xxxxxx";
     ft_striteri(s5, trans_digiti_it);
-    TEST_STRCMP(s5, "012345", "ft_striteri(\"xxxxxx\", trans_digiti_it)");
+    TEST_STRCMP_NOFREE(s5, "012345", "ft_striteri(\"xxxxxx\", trans_digiti_it)");
 }
