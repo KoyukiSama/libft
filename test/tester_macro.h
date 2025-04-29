@@ -34,18 +34,20 @@ void	free_strs(char **strs);
 
 #define TEST_STRCMP(res1, res2, name)									\
 	do {																\
-		if (strcmp(res1, res2) == 0)									\
+		char *_res1 = (res1);											\
+		char *_res2 = (res2);											\
+		if (strcmp(_res1, _res2) == 0)									\
 			printf(GREEN "[PASS] " RESET "%s\n", name); 				\
 		else															\
 		{																\
 			printf(RED "[FAIL] " RESET "%s\n", name);					\
-			printf("MINE:  = \"%s\"\n", res1);							\
-			printf("CORR:  = \"%s\"\n", res2);							\
+			printf("MINE:  = \"%s\"\n", _res1);							\
+			printf("CORR:  = \"%s\"\n", _res2);							\
 		}																\
-		free(res1);														\
+		free(_res1);													\
 	} while (0);														\
 
-#define TEST_STRCMP_NOFREE(res1, res2, name)									\
+#define TEST_STRCMP_NOFREE(res1, res2, name)							\
 	do {																\
 		if (strcmp(res1, res2) == 0)									\
 			printf(GREEN "[PASS] " RESET "%s\n", name); 				\
@@ -59,22 +61,24 @@ void	free_strs(char **strs);
 	
 #define TEST_STRSCMP(res1, res2, name)									\
 	do {																\
-		if (strscmp(res1, res2) == 0)									\
+		char **_res1 = (res1);											\
+		char **_res2 = (res2);											\
+		if (strscmp(_res1, _res2) == 0)									\
 			printf(GREEN "[PASS] " RESET "%s\n", name); 				\
 		else															\
 		{																\
 			printf(RED "[FAIL] " RESET "%s\n", name);					\
 			printf("MINE:  = ");										\
-			print_strs(res1);											\
+			print_strs(_res1);											\
 			printf("CORR:  = ");										\
-			print_strs(res2);											\
+			print_strs(_res2);											\
 		}																\
 		int i = 0;														\
-		while (res1[i])													\
+		while (_res1[i])												\
 		{																\
-			free(res1[i++]);											\
+			free(_res1[i++]);											\
 		}																\
-		free(res1);														\
+		free(_res1);													\
 	} while (0);														\
 
 #define TEST_PTRCMP(res1, res2, name)									\

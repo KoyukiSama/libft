@@ -25,7 +25,7 @@ int main(void)
 	TEST_STRCMP(ft_itoa(1), "1", "ft_itoa(1)");
 	TEST_STRCMP(ft_itoa(-0), "0", "ft_itoa(0)");
 	TEST_STRCMP(ft_itoa(-100), "-100", "ft_itoa(-100)");
-	TEST_STRCMP(ft_itoa(-259029), "-100", "ft_itoa(-259029)");
+	TEST_STRCMP(ft_itoa(-259029), "-259029", "ft_itoa(-259029)");
 	TEST_STRCMP(ft_itoa(100), "100", "ft_itoa(100)");
 	
 }

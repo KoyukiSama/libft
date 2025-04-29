@@ -15,11 +15,32 @@ int main(void)
 	TEST_SIZETCMP(ft_strlen("a\0bcd"), strlen("a\0bcd"), "ft_strlen(\"a\\0bcd\")");
 	
 	printf("++++++++++++ft_strlcpy++++++++++++\n");
-	
-	printf("++++++++++++ft_strlcat++++++++++++\n");
-	char dst[] = "hello\0                    ";
+	char buf[10];
+	ft_strlcpy(buf, "hello", sizeof(buf));
+	TEST_STRCMP(strdup(buf), "hello", "ft_strlcpy(buf, \"hello\", 10)");
+	ft_strlcpy(buf, "world", 3);
+	TEST_STRCMP(strdup(buf), "wo", "ft_strlcpy(buf, \"world\", 3)");
+	ft_strlcpy(buf, "", sizeof(buf));
+	TEST_STRCMP(strdup(buf), "", "ft_strlcpy(buf, \"\", 10)");
+	ft_strlcpy(buf, "abcde", 1);
+	TEST_STRCMP(strdup(buf), "", "ft_strlcpy(buf, \"abcde\", 1)");
 
+	printf("++++++++++++ft_strlcat++++++++++++\n");
+	char buf1[10] = "foo";
+	ft_strlcat(buf1, "bar", sizeof(buf1));
+	TEST_STRCMP(strdup(buf1), "foobar", "ft_strlcat(buf1, \"bar\", 10)");
+	char buf2[5] = "";
+	ft_strlcat(buf2, "baz", sizeof(buf2));
+	TEST_STRCMP(strdup(buf2), "baz", "ft_strlcat(buf2, \"baz\", 5)");
+	char buf3[5] = "xy";
+	ft_strlcat(buf3, "", sizeof(buf3));
+	TEST_STRCMP(strdup(buf3), "xy", "ft_strlcat(buf3, \"\", 5)");
+	char buf4[1] = "";
+	ft_strlcat(buf4, "foo", sizeof(buf4));
+	TEST_STRCMP(strdup(buf4), "", "ft_strlcat(buf4, \"foo\", 1)");
+	
 	printf("++++++++++++ft_strchr++++++++++++\n");
+	char dst[100];
 	ft_strlcpy(dst, "ABCDEABCDE", 10);
 	TEST_PTRCMP(ft_strchr(dst, 'A'), strchr(dst, 'A'), "ft_strchr(dst, 'A')");
 	TEST_PTRCMP(ft_strchr(dst, 'Z'), strchr(dst, 'Z'), "ft_strchr(dst, 'Z')");
