@@ -6,11 +6,13 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/28 13:35:40 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 22:31:04 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/29 16:44:20 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_set_negative(int *n, int *str_len, int *sign);
 
 char	*ft_itoa(int n)
 {

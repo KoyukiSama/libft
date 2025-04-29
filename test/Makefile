@@ -11,7 +11,7 @@ OBJ     := $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
 
 TEST_MACROS := tester_macro.c
 TEST_SRC := main_ctype.c main_mem.c main_stdlib.c main_str.c main_str2.c \
-			main_fd.c
+			main_fd.c main_lst_bonus.c
 TEST_OUT := $(TEST_SRC:%.c=%.out)
 
 PINK      := \033[38;5;13m
@@ -44,6 +44,7 @@ retest: testre fclean
 	@i=1;
 	@for outp in $(TEST_OUT); do \
 	  printf "$(PINK)<3-----------|$(PINK_HOT) [TEST %d] : %s $(PINK)|---------------<3\n$(RESET)" "$$i" "$$outp"; \
+	  !!!valgrind --leak-check=full --track-origins=yes --show-reachable=yes --track-fds=yes ./$$outp; \
 	  ./$$outp; \
 	  i=$$((i+1)); \
 	done
