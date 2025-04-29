@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 18:51:56 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/30 00:41:12 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isascii(int c)
 {
-	if (c <= 127)
-		return (1);
-	return (0);
+	return (c >= 0 && c <= 127);
 }

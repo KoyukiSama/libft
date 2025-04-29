@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:36:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 18:38:40 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/30 00:42:39 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isspace(int c)
 {
-	if ((c >= '\t' && c <= '\r') || c == ' ')
-		return (1);
-	return (0);
+	return ((c >= '\t' && c <= '\r') || c == ' ');
 }
