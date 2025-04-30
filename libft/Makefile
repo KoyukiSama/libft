@@ -35,10 +35,16 @@ bonus: $(OBJ_BONUS)
 clean:
 	rm -f $(OBJ)
 
+clean_bonus:
+	rm -f $(OBJ_BONUS)
+
 fclean: clean
 	rm -f $(NAME)
 
+fclean_bonus: fclean clean_bonus
+
 re: fclean all
-	$(MAKE) clean
+
+re_bonus: fclean_bonus all bonus
 
 .PHONY: all clean fclean re bonus

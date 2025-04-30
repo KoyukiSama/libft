@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/27 13:28:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 16:49:19 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/30 02:14:18 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static char	**ft_malloc_ss(const char *s, char c, size_t *strs_count)
 {
 	size_t	count;
 	size_t	i;
+	char	**ss;
 
 	count = 0;
 	i = 0;

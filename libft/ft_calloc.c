@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 23:02:25 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 18:41:34 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/04/30 02:00:18 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,8 @@ void	*ft_calloc(size_t n, size_t size)
 	if (n > SIZE_MAX / size)
 		return (NULL);
 	bytes = n * size;
-	if (bytes == 0)
-	{
-		bytes = 1;
-		s = malloc(bytes);
-		if (!s)
-			return (NULL);
-	}
-	else
-	{
-		s = malloc(bytes);
-		if (!s)
-			return (NULL);
-	}
+	s = malloc(bytes);
+	if (!s)
+		return (NULL);
 	return (ft_memset(s, 0, bytes));
 }
