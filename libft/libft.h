@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/30 14:52:51 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/01 18:37:07 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define LIBFT_H
 
 # include <stddef.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include <unistd.h>
 
 // (ft_ctype)
 int		ft_isalpha(int c);

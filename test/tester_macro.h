@@ -4,6 +4,7 @@
 
 #include "../libft/libft_bonus.h"
 #include <stdio.h>
+#include <stdint.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>

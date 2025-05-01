@@ -6,11 +6,12 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/28 13:35:40 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/30 01:01:00 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/01 18:33:33 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static void	ft_set_negative(long *n, int *str_len, int *sign);
 static int	ft_digits(long nbr);

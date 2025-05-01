@@ -6,11 +6,13 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 13:25:51 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/01 18:36:22 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <stdint.h>
 
 static const char	*ft_strend(char const *s);
 
