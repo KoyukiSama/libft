@@ -6,11 +6,12 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/27 13:28:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/01 18:34:33 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/03 13:18:26 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 #include <stdlib.h>
 
 // ft_split helpers

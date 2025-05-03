@@ -6,11 +6,12 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/01 18:35:12 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/03 13:16:24 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 #include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)

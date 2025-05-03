@@ -6,11 +6,11 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 23:02:25 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 18:40:19 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/03 13:20:29 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 //	The  memchr()  and  memrchr()
 //	functions return a pointer to

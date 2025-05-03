@@ -6,11 +6,10 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/28 19:38:26 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/28 21:12:02 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/03 13:19:16 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
 #include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)

@@ -6,11 +6,11 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 14:32:58 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/04/27 18:42:59 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/03 13:16:07 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 // 	The  strlcat()  function  ap‐
 //  pends   the    NUL-terminated

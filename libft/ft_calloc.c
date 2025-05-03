@@ -6,13 +6,14 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/23 23:02:25 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/01 18:32:57 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/03 13:23:14 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 #include <stdint.h>
+#include <stddef.h>
 
 void	*ft_calloc(size_t n, size_t size)
 {
