@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 18:13:31 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 18:57:14 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 22:40:51 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ t_arrlst	*ft_arrlst_del_shift(t_arrlst **arrlst, size_t i, \
 t_arrlst	*ft_arrlst_deppend(t_arrlst **arrlst, \
 								void (*del)(void *))
 {
-	del((*arrlst)->arr[(*arrlst)->len - 1]);
-	(*arrlst)->arr[(*arrlst)->len - 1] = NULL;
 	if ((*arrlst)->len > 0)
+	{
+		del((*arrlst)->arr[(*arrlst)->len - 1]);
+		(*arrlst)->arr[(*arrlst)->len - 1] = NULL;
 		(*arrlst)->len--;
+	}
 	if ((*arrlst)->len < (*arrlst)->cap / 4 && (*arrlst)->cap > 10)
 	{
 		if (!ft_arrlst_shrink(arrlst, del))
