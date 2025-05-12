@@ -6,23 +6,26 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 18:57:42 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 19:03:28 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 21:47:55 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arrlst.h"
-#include <stdlib.h>
 
-// size_t	ft_arrlst_get_len
+size_t	ft_arrlst_get_len(t_arrlst *arrlst)
+{
+	return (arrlst->len);
+}
 
-// size_t	ft_arrlst_get_cap
+size_t	ft_arrlst_get_cap(t_arrlst *arrlst)
+{
+	return (arrlst->cap);
+}
 
-// void		*ft_arrlst_get_at_i
- 
-// size_t	ft_arrlst_get_chri
-
-// size_t	ft_arrlst_get_rchri
-
-// void		*ft_arrlst_get_chr
-
-// void		*ft_arrlst_get_rchr
+// returns the content at i
+void	*ft_arrlst_get_i(t_arrlst *arrlst, size_t i)
+{
+	if (i > arrlst->len)
+		return (NULL);
+	return (arrlst->arr[i]);
+}
