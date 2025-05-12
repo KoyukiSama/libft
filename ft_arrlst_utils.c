@@ -6,11 +6,12 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 00:58:22 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 17:59:20 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 22:11:55 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arrlst.h"
+#include <stdlib.h>
 
 t_arrlst	*ft_arrlst_shrink(t_arrlst **arrlst, void (*del)(void *))
 {
@@ -38,6 +39,8 @@ t_arrlst	*ft_arrlst_shrink(t_arrlst **arrlst, void (*del)(void *))
 	return (*arrlst);
 }
 
+static void	ft_arrlst_grow_copy_init(t_arrlst *arrlst, t_arrlst *old_arrlst);
+
 t_arrlst	*ft_arrlst_grow(t_arrlst **arrlst, void (*del)(void *))
 {
 	t_arrlst	*new_arrlst;
@@ -49,7 +52,7 @@ t_arrlst	*ft_arrlst_grow(t_arrlst **arrlst, void (*del)(void *))
 	new_arrlst = ft_arrlst_create((*arrlst)->cap * 2, (*arrlst)->len);
 	if (!new_arrlst)
 		return (ft_arrlst_free(arrlst, del), NULL);
-	ft_arrlst_grow_copy_init(new_arrlst, arrlst);
+	ft_arrlst_grow_copy_init(new_arrlst, *arrlst);
 	free((*arrlst)->arr);
 	free(*arrlst);
 	*arrlst = new_arrlst;

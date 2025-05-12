@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 16:27:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 18:50:57 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 22:10:57 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ t_arrlst	*ft_arrlst_append(t_arrlst **arrlst, void *content, \
 	return (*arrlst);
 }
 
+static t_arrlst	*ft_arrlst_set_i_bigger_len(t_arrlst **arrlst, size_t i, \
+							void *content, void (*del)(void *));
+							
 t_arrlst	*ft_arrlst_set(t_arrlst **arrlst, size_t i, void *content, \
 						void (*del)(void *))
 {
