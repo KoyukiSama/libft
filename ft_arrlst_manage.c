@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 00:24:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 00:56:16 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 18:01:15 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_arrlst	*ft_arrlst_create(size_t cap, size_t len)
 {
 	t_arrlst	*arrlst;
 
+	if (cap < 10)
+		cap = 10;
 	arrlst = malloc(sizeof(*arrlst));
 	if (!arrlst)
 		return (NULL);
@@ -40,15 +42,18 @@ void	ft_arrlst_free(t_arrlst **arrlst, void (*del)(void *))
 	i = 0;
 	while (i < (*arrlst)->len)
 	{
-		del((*arrlst)->arr[i]);
+		if ((*arrlst)->arr[i])
+			del((*arrlst)->arr[i]);
 		i++;
 	}
-	free((*arrlst)->arr);
-	free(*arrlst);
+	if ((*arrlst)->arr)
+		free((*arrlst)->arr);
+	if (*arrlst)
+		free(*arrlst);
 	*arrlst = NULL;
 }
 
-void	ft_arrlst_reset(t_arrlst **arrlst, void (*del)(void *))
+t_arrlst	*ft_arrlst_reset(t_arrlst **arrlst, void (*del)(void *))
 {
 	size_t	cap;
 	size_t	len;
@@ -57,4 +62,7 @@ void	ft_arrlst_reset(t_arrlst **arrlst, void (*del)(void *))
 	len = (*arrlst)->strt_len;
 	ft_arrlst_free(arrlst, del);
 	*arrlst = ft_arrlst_create(cap, len);
+	if (!*arrlst)
+		return (NULL);
+	return (*arrlst);
 }
