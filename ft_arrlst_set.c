@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 16:27:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 18:13:15 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 18:32:28 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ t_arrlst	*ft_arrlst_set(t_arrlst **arrlst, size_t i, void *content, \
 {
 	if (i < (*arrlst)->len)
 	{
-		del((*arrlst)->arr[i]);
+		if ((*arrlst)->arr[i])
+			del((*arrlst)->arr[i]);
 		(*arrlst)->arr[i] = content;
 		return (*arrlst);
 	}
