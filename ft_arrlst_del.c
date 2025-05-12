@@ -6,13 +6,15 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 18:13:31 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 18:43:00 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 18:54:15 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arrlst.h"
 #include <stddef.h>
 
+// this function will delete the content at i
+// and will just NULL it out.
 t_arrlst	*ft_arrlst_del_null(t_arrlst **arrlst, size_t i, \
 									void (*del)(void *))
 {
@@ -21,6 +23,8 @@ t_arrlst	*ft_arrlst_del_null(t_arrlst **arrlst, size_t i, \
 	return (ft_arrlst_set(arrlst, i, NULL, del));
 }
 
+// this function will delete the content at i
+// and then shift all the elements 
 t_arrlst	*ft_arrlst_del_shift(t_arrlst **arrlst, size_t i, \
 									void (*del)(void *))
 {
