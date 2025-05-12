@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 16:27:29 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 18:32:28 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/12 18:50:57 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_arrlst	*ft_arrlst_set(t_arrlst **arrlst, size_t i, void *content, \
 		if ((*arrlst)->arr[i])
 			del((*arrlst)->arr[i]);
 		(*arrlst)->arr[i] = content;
+		if (i == (*arrlst)->len - 1)
+			(*arrlst)->len--;
 		return (*arrlst);
 	}
 	else if (!content)
@@ -43,13 +45,19 @@ t_arrlst	*ft_arrlst_set(t_arrlst **arrlst, size_t i, void *content, \
 		return (ft_arrlst_append(arrlst, content, del));
 	else
 	{
-		while (i >= (*arrlst)->cap)
-		{
-			if (!ft_arrlst_grow(arrlst, del))
-				return (NULL);
-		}
-		(*arrlst)->len = i + 1;
-		(*arrlst)->arr[i] = content;
-		return (*arrlst);
+		return (ft_arrlst_set_i_bigger_len(arrlst, i, content, del));
 	}
+}
+
+static t_arrlst	*ft_arrlst_set_i_bigger_len(t_arrlst **arrlst, size_t i, \
+							void *content, void (*del)(void *))
+{
+	while (i >= (*arrlst)->cap)
+	{
+		if (!ft_arrlst_grow(arrlst, del))
+			return (NULL);
+	}
+	(*arrlst)->len = i + 1;
+	(*arrlst)->arr[i] = content;
+	return (*arrlst);
 }
