@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 00:25:41 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 21:52:09 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/13 13:48:12 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ t_arrlst	*ft_arrlst_deppend(t_arrlst **arrlst, \
 								void (*del)(void *));
 
 // (ft_arrlst_get.c)
-size_t	ft_arrlst_get_len(t_arrlst *arrlst);
-size_t	ft_arrlst_get_cap(t_arrlst *arrlst);
-void	*ft_arrlst_get_i(t_arrlst *arrlst, size_t i);
+size_t		ft_arrlst_get_len(t_arrlst *arrlst);
+size_t		ft_arrlst_get_cap(t_arrlst *arrlst);
+void		*ft_arrlst_get_i(t_arrlst *arrlst, size_t i);

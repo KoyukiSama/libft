@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/12 21:50:12 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/05/12 22:38:59 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/05/13 14:24:45 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void ft_print_arrlst(t_arrlst *arrlst)
 	i = 0;
 	while (i < arrlst->len)
 	{
-		printf(GRN"%s, "WHT, (char *)(arrlst->arr[i]));
+		printf(GRN"%lu:%s, "WHT, i, (char *)(arrlst->arr[i]));
 		i++;
 	}
 	while (i < arrlst->cap)
 	{
-		printf(BLU"%s, "WHT, (char *)(arrlst->arr[i]));
+		printf(BLU"%lu:%s, "WHT, i, (char *)(arrlst->arr[i]));
 		i++;
 	}
 	putchar('\n');
@@ -56,22 +56,25 @@ int main(void)
 	ft_print_arrlst_strt_stats(arr1);
 	ft_print_arrlst_stats(arr1);
 
-	ft_arrlst_append(&arr1, ft_strdup("hi"), free);
-	ft_arrlst_append(&arr1, ft_strdup("de"), free);
-	ft_arrlst_append(&arr1, ft_strdup("se"), free);
-	ft_arrlst_append(&arr1, ft_strdup("de"), free);
-	ft_arrlst_append(&arr1, ft_strdup("e"), free);
-	ft_arrlst_append(&arr1, ft_strdup("f"), free);
-	ft_arrlst_append(&arr1, ft_strdup("f"), free);
-	ft_arrlst_append(&arr1, ft_strdup("f"), free);
-	ft_arrlst_append(&arr1, ft_strdup("f"), free);
-	ft_arrlst_append(&arr1, ft_strdup("f"), free);
-	ft_arrlst_append(&arr1, ft_strdup("a"), free);
-	printf("nl: "); ft_print_arrlst(arr1);
-	for (size_t i = 0; i < 12; i++)
-		ft_arrlst_deppend(&arr1, free);
-	printf("nl: "); ft_print_arrlst(arr1);
+	for (size_t i = 0; i < 100; i++)
+		ft_arrlst_append(&arr1, ft_strdup("hi"), free);
 
+	for (size_t i = 0; i < 100; i++)
+		ft_arrlst_append(&arr1, ft_strdup("bye"), free);
+	// printf("nl: "); ft_print_arrlst(arr1);
+
+	//ft_arrlst_append(&arr1, ft_strdup("hello world"), free);
+
+	for (size_t i = 0; i < 400; i++)
+		ft_arrlst_del_null(&arr1, i, free);
+
+	ft_arrlst_reset(&arr1, free);
+
+	//ft_arrlst_del_null
+	//ft_arrlst_del_shift
+
+	printf("nl: "); ft_print_arrlst(arr1);
+	ft_print_arrlst_stats(arr1);
 	ft_arrlst_free(&arr1, free);
 	if (arr1 == NULL)
 		printf("%p", NULL);
