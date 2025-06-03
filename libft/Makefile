@@ -1,6 +1,6 @@
 
 NAME		:= libft.a
-CC			:= gcc
+CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 
 SRC_LBFT	:= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
@@ -15,21 +15,23 @@ SRC_LBFT	:= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 				ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 				ft_putnbr_fd.c
 
-SRC_LKDLST	:= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-				ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+SRC_LKDLST	:= ft_lst_add.c ft_lst_del.c ft_lst_manage.c \
+				ft_lst_get.c ft_lst_getcont.c
 
 SRC_GNL		:= get_next_line_utils.c get_next_line.c
 
 SRC_ARRLST	:= ft_arrlst_del.c ft_arrlst_get.c ft_arrlst_manage.c \
 				ft_arrlst_set.c ft_arrlst_utils.c
 
+SRC_PF		:= ft_print.c pf_get_va.c pf_print_out.c pf_set_flags.c \
+				pf_set_flags2.c pf_sometoa.c pf_sometoa2.c
+
 OBJ_LBFT 	:= $(SRC_LBFT:.c=.o)
 OBJ_LKDLST 	:= $(SRC_LKDLST:.c=.o)
 OBJ_GNL		:= $(SRC_GNL:.c=.o)
 OBJ_ARRLST	:= $(SRC_ARRLST:.c=.o)
 
-OBJ := $(OBJ_LBFT) $(OBJ_LST) $(OBJ_GNL) $(OBJ_ARRLST)
+OBJ := $(OBJ_LBFT) $(OBJ_LKDLST)
 
 all: $(NAME)
 
