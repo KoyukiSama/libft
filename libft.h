@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/22 16:57:18 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/06/11 15:56:31 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/07/18 16:52:50 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	ft_putnbr_fd(int n, int fd);
 
 // (ft_math)
 int		ft_abs(int x);
+size_t	ft_next_p2(size_t nbr);
 
 // (ft_get_next_line)
 # ifdef BUFFER_SIZE
