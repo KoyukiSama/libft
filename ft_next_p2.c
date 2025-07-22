@@ -6,7 +6,7 @@
 /*   By: kclaes <kclaes@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/18 16:50:51 by kclaes        #+#    #+#                 */
-/*   Updated: 2025/07/18 16:52:30 by kclaes        ########   odam.nl         */
+/*   Updated: 2025/07/22 17:28:46 by kclaes        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ size_t	ft_next_p2(size_t nbr)
 {
 	if (nbr < 2)
 		return (2);
-	nbr--;
 	nbr |= nbr >> 1;
 	nbr |= nbr >> 2;
 	nbr |= nbr >> 4;
